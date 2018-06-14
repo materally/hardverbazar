@@ -8,6 +8,7 @@ class CategoryList extends Component {
   }
 
   render() {
+    //console.log(this.props)
     window.scrollTo(0, 0)
     //subCatName: {this.props.location.state.subCatName}
     //subCatSlugName: {this.props.match.params.subCatSlugName}
