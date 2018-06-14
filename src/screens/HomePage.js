@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import nl2br from 'react-nl2br';
 
 const styles = {
   transition: 'all 0.3s ease-out'
@@ -33,9 +32,19 @@ class HomePage extends Component {
 
     const ads = this.state.ads.map((item, index) => {
         return (
-          <div key={item.id}>
-            <h3 key={index}>{item.name.replace(/&quot;/g,'"')}</h3>
-            <p key={item.desc}>{nl2br(item.desc.replace(/&quot;/g,'"'))}</p>
+
+          <div className="col-sm-4 col-lg-4 col-md-4">
+            <div className="thumbnail">
+              <div className="thmb_image" style={{ backgroundImage: `url('http://hardver-bazar.hu/uploads/thumb_20180608094958.jpeg')` }}></div>
+              <div className="caption">
+                <h4 className="product_name"><a href="">{item.name}</a></h4>
+                <p className="product_desc">{item.desc}</p>
+              </div>
+              <div className="ratings">
+                <p className="pull-right"><strong>{item.price}</strong></p>
+                <p>{item.region}</p>
+              </div>
+            </div>
           </div>
         );
     })
