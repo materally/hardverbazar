@@ -34,8 +34,8 @@ class HomePage extends Component {
     const ads = this.state.ads.map((item, index) => {
         return (
           <div key={item.id}>
-            <h3 key={index}>{item.name}</h3>
-            <p key={item.desc}>{nl2br(item.desc)}</p>
+            <h3 key={index}>{item.name.replace(/&quot;/g,'"')}</h3>
+            <p key={item.desc}>{nl2br(item.desc.replace(/&quot;/g,'"'))}</p>
           </div>
         );
     })
