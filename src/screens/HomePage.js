@@ -35,7 +35,7 @@ class HomePage extends Component {
 
           <div className="col-sm-4 col-lg-4 col-md-4">
             <div className="thumbnail">
-              <div className="thmb_image" style={{ backgroundImage: `url('http://hardver-bazar.hu/uploads/thumb_20180608094958.jpeg')` }}></div>
+              <div className="thmb_image" style={{ backgroundImage: `url('${item.img_src}')` }}></div>
               <div className="caption">
                 <h4 className="product_name"><a href="">{item.name}</a></h4>
                 <p className="product_desc">{item.desc}</p>
