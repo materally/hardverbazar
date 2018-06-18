@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-const styles = {
-  transition: 'all 0.3s ease-out'
-}
 
 class HomePage extends Component {
 

@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-const styles = {
-  transition: 'all 0.3s ease-out'
-}
-
 class CategoryList extends Component {
 
   constructor(){
@@ -25,6 +21,19 @@ class CategoryList extends Component {
       this.setState({ads: json.ads}, () => { this.setState({ loading: false, Opacity: 1 }, () => { this.props.dispatch({type: "HIDE"}) }) });
       //console.log(json)
     })
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.match.params.subCatID !== this.props.match.params.subCatID){
+      this.setState({ loading: true });
+      this.props.dispatch({type: "SHOW"});
+      fetch(`http://hardver-bazar.hu/backend/index.php?api=getcategorylist&cat=${nextProps.match.params.subCatID}&page=1&row_per_page=5`)
+      .then(response => { return response.json(); })
+      .then(json => {
+        this.setState({ads: json.ads}, () => { this.setState({ loading: false, Opacity: 1 }, () => { this.props.dispatch({type: "HIDE"}) }) });
+        //console.log(json)
+      })
+    }
   }
 
   render() {

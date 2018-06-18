@@ -13,6 +13,8 @@ import LeftMenu from './components/LeftMenu'
 import HomePage from './screens/HomePage'
 import CategoryList from './screens/CategoryList'
 
+import NotFound from './screens/NotFound'
+
 const initialState = {
   LoaderGIF: 0
 }
@@ -44,6 +46,7 @@ function reducer(state = initialState, action){
 const store = createStore(reducer)
 
 class App extends Component {
+
   render() {
     return (
       <Provider store={store}>
@@ -54,7 +57,7 @@ class App extends Component {
               <LeftMenu />
             </div>
             <div id="MainSection" className="col-md-9">
-              <Route exact path="/" component={HomePage} />
+              <Route exact path="/" component={HomePage}/>
               <Route exact path="/kategoria/:subCatID/:subCatSlugName" component={CategoryList} />
             </div>
           </div>
