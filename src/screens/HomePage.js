@@ -36,6 +36,7 @@ class HomePage extends Component {
             desc={item.desc}
             nice_price={item.nice_price}
             region_full={item.region_full}
+            key={index}
           />
         );
     })
