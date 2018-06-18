@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import Ads from '../components/Ads';
+
 class CategoryList extends Component {
 
   constructor(){
@@ -40,20 +42,13 @@ class CategoryList extends Component {
     window.scrollTo(0, 0)
     const ads = this.state.ads.map((item, index) => {
       return (
-
-        <div className="col-sm-4 col-lg-4 col-md-4">
-          <div className="thumbnail">
-            <div className="thmb_image" style={{ backgroundImage: `url('${item.img_src}')` }}></div>
-            <div className="caption">
-              <h4 className="product_name"><a href="">{item.name}</a></h4>
-              <p className="product_desc">{item.desc}</p>
-            </div>
-            <div className="ratings">
-              <p className="pull-right"><strong>{item.price}</strong></p>
-              <p>{item.region}</p>
-            </div>
-          </div>
-        </div>
+          <Ads 
+            img_src={item.img_src} 
+            product_name={item.name}
+            desc={item.desc}
+            nice_price={item.nice_price}
+            region_full={item.region_full}
+          />
       );
   })
     //subCatName: {this.props.location.state.subCatName}
